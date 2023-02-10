@@ -383,7 +383,7 @@ async def get_shortlink(link):
         https = "https"
         link = link.replace("http", https)
 
-    url = f'https://tnlink.in/api'
+    url = f'https://link.tnlink.in/api'
     params = {'token': URL_SHORTNER_WEBSITE_API,
               'link': link,
               'format': 'json'
@@ -397,8 +397,8 @@ async def get_shortlink(link):
                     return data['shortlink']
                 else:
                     logger.error(f"Error: {data['message']}")
-                    return f'https://{URL_SHORTENR_WEBSITE}/api?api={URL_SHORTNER_WEBSITE_API}&url={link}&format=text'
+                    return f'https://{URL_SHORTENR_WEBSITE}/api?api={URL_SHORTNER_WEBSITE_API}&url={link}'
 
     except Exception as e:
         logger.error(e)
-        return f'https://{URL_SHORTENR_WEBSITE}/api?api={URL_SHORTNER_WEBSITE_API}&url={link}&format=text'
+        return f'{URL_SHORTENR_WEBSITE}/api?api={URL_SHORTNER_WEBSITE_API}&url={link}'
